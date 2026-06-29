@@ -1,0 +1,12 @@
+[build]
+  publish = "outputs/site_jls"
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/site"
+  to = "/"
+  status = 301

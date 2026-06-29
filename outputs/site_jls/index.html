@@ -1,0 +1,2541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JLS Log | Soluções Logísticas no Mato Grosso</title>
+<meta name="description" content="JLS Log: solução logística no Mato Grosso para empresas que precisam chegar mais longe, com apoio local para receber, transferir, distribuir e comprovar entregas." />
+<style>
+:root {
+  --navy-950: #081A2C;
+  --navy-900: #0E2438;
+  --navy-800: #16324A;
+  --navy-700: #24465E;
+  --orange: #F37005;
+  --orange-deep: #C84B09;
+  --ink: #0E1720;
+  --text: #263544;
+  --muted: #64717F;
+  --line: #DDE4EA;
+  --soft: #F3F6F8;
+  --paper: #FFFFFF;
+  --success: #1A6B54;
+  --shadow: 0 24px 70px rgba(8, 26, 44, .16);
+}
+
+* { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: var(--paper);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button, select { font: inherit; }
+.icon-sprite { display: none; }
+
+.site-shell {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, .94);
+  border-bottom: 1px solid rgba(221, 228, 234, .92);
+  backdrop-filter: blur(14px);
+}
+
+.nav {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  width: 178px;
+  height: auto;
+  max-height: 54px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--navy-800);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.nav-links a {
+  padding: 11px 12px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.nav-links a:hover { background: var(--soft); }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.client-area-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--navy-900);
+  background: var(--paper);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.client-area-link svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  color: var(--orange);
+}
+
+.client-area-link:hover {
+  border-color: var(--orange);
+  background: #FFF7F0;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  background: var(--orange);
+  color: var(--paper);
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  box-shadow: 0 10px 24px rgba(243, 112, 5, .22);
+}
+
+.hero {
+  position: relative;
+  min-height: 612px;
+  color: var(--paper);
+  background: var(--navy-950);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(8, 26, 44, .98) 0%, rgba(8, 26, 44, .92) 44%, rgba(8, 26, 44, .54) 72%, rgba(8, 26, 44, .26) 100%),
+    linear-gradient(180deg, rgba(8, 26, 44, .08), rgba(8, 26, 44, .82));
+  z-index: 1;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0 0 0 38%;
+  z-index: 0;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: .9;
+}
+
+.hero-mark {
+  position: absolute;
+  right: 58px;
+  bottom: 52px;
+  width: 380px;
+  opacity: .08;
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 40px));
+  min-height: 612px;
+  margin: 0 auto;
+  display: grid;
+  align-content: center;
+  padding: 54px 0 50px;
+}
+
+.hero-content {
+  width: min(740px, 100%);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 42px;
+  height: 3px;
+  background: var(--orange);
+}
+
+h1, h2, h3, p { margin-top: 0; }
+
+h1 {
+  margin-bottom: 22px;
+  color: var(--paper);
+  font-family: Manrope, Montserrat, "Arial Black", Arial, sans-serif;
+  font-size: 68px;
+  line-height: .94;
+  letter-spacing: 0;
+  max-width: 730px;
+  overflow-wrap: break-word;
+}
+
+.accent { color: var(--orange); }
+
+.hero-lead {
+  max-width: 660px;
+  margin-bottom: 28px;
+  color: #DDE4EA;
+  font-size: 19px;
+  line-height: 1.52;
+}
+
+.hero-microcopy {
+  max-width: 650px;
+  margin: 16px 0 0;
+  color: #B8C4CE;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.hero-actions,
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.button-primary,
+.button-secondary,
+.button-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 50px;
+  padding: 0 20px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.button-primary {
+  background: var(--orange);
+  color: var(--paper);
+  box-shadow: 0 16px 34px rgba(243, 112, 5, .26);
+}
+
+.button-primary:hover,
+.nav-cta:hover { background: #FF7A0A; }
+
+.button-secondary {
+  color: var(--paper);
+  border-color: rgba(255, 255, 255, .34);
+  background: rgba(255, 255, 255, .06);
+}
+
+.button-dark {
+  background: var(--navy-900);
+  color: var(--paper);
+}
+
+.hero-proof {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 820px;
+  background: rgba(255, 255, 255, .12);
+}
+
+.proof-item {
+  padding: 16px 18px;
+  background: rgba(8, 26, 44, .72);
+}
+
+.proof-item strong {
+  display: block;
+  color: var(--paper);
+  font-size: 21px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.proof-item span {
+  color: #B8C4CE;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.flow-ribbon {
+  position: relative;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.flow-ribbon-inner {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+}
+
+.flow-step {
+  position: relative;
+  padding: 28px 30px 28px 0;
+  border-right: 1px solid var(--line);
+}
+
+.flow-step:last-child { border-right: 0; padding-right: 0; padding-left: 30px; }
+.flow-step:nth-child(2) { padding-left: 30px; }
+
+.flow-step::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 2;
+}
+
+.flow-step:last-child::after { display: none; }
+
+.step-label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.flow-step strong {
+  display: block;
+  color: var(--navy-900);
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.flow-step p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.base-section {
+  padding: 62px 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F7F9 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.base-grid {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.base-copy {
+  padding: 38px;
+  background: var(--navy-900);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.base-copy::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  bottom: -70px;
+  width: 290px;
+  height: 190px;
+  background: var(--orange);
+  opacity: .12;
+  clip-path: polygon(0 22%, 68% 22%, 68% 0, 100% 50%, 68% 100%, 68% 78%, 0 78%);
+}
+
+.base-copy h2 {
+  position: relative;
+  z-index: 1;
+  color: var(--paper);
+  margin-bottom: 16px;
+}
+
+.base-copy p {
+  position: relative;
+  z-index: 1;
+  color: #C9D3DC;
+  font-size: 17px;
+  margin-bottom: 0;
+}
+
+.base-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.base-fact {
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(255, 255, 255, .06);
+}
+
+.base-fact strong {
+  display: block;
+  color: var(--paper);
+  font-size: 28px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.base-fact span {
+  color: #B8C4CE;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.fit-tool {
+  padding: 30px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.fit-tool-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.fit-tool-header h3 {
+  color: var(--navy-900);
+  font-size: 26px;
+  line-height: 1.08;
+  margin-bottom: 8px;
+}
+
+.fit-tool-header p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.fit-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.fit-tab {
+  min-height: 54px;
+  border: 1px solid var(--line);
+  border-left: 4px solid transparent;
+  background: #FAFBFC;
+  color: var(--navy-900);
+  border-radius: 4px;
+  padding: 11px 13px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.fit-tab.is-active {
+  color: var(--paper);
+  background: var(--navy-900);
+  border-left-color: var(--orange);
+}
+
+.fit-result {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+  background: var(--soft);
+  border-top: 3px solid var(--orange);
+}
+
+.fit-result strong {
+  color: var(--navy-900);
+  font-size: 20px;
+}
+
+.fit-result p {
+  color: var(--text);
+  margin-bottom: 0;
+}
+
+.fit-result ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fit-result li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.fit-result li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 8px;
+  height: 8px;
+  background: var(--orange);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.section {
+  padding: 92px 0;
+}
+
+.section-soft { background: var(--soft); }
+.section-dark { background: var(--navy-950); color: var(--paper); }
+
+.container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 460px);
+  gap: 42px;
+  align-items: end;
+  margin-bottom: 42px;
+}
+
+.section-kicker {
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+h2 {
+  color: var(--navy-900);
+  font-family: Manrope, Montserrat, Arial, sans-serif;
+  font-size: 44px;
+  line-height: 1.04;
+  letter-spacing: 0;
+  margin-bottom: 0;
+}
+
+.section-dark h2 { color: var(--paper); }
+
+.section-summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.section-dark .section-summary { color: #B8C4CE; }
+
+.context-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.context-card {
+  position: relative;
+  padding: 30px;
+  min-height: 250px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.context-card::after {
+  content: "";
+  position: absolute;
+  right: -26px;
+  bottom: -16px;
+  width: 110px;
+  height: 74px;
+  background: var(--orange);
+  opacity: .1;
+  clip-path: polygon(0 22%, 68% 22%, 68% 0, 100% 50%, 68% 100%, 68% 78%, 0 78%);
+}
+
+.context-card .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  background: var(--navy-900);
+  color: var(--paper);
+  font-weight: 950;
+}
+
+.context-card h3 {
+  color: var(--navy-900);
+  font-size: 24px;
+  line-height: 1.12;
+  margin-bottom: 12px;
+}
+
+.context-card p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.service-card {
+  position: relative;
+  min-height: 270px;
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--orange);
+}
+
+.service-card span {
+  display: block;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.service-card h3 {
+  color: var(--navy-900);
+  font-size: 23px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.service-card .decision {
+  color: var(--navy-800);
+  font-weight: 850;
+  margin-bottom: 12px;
+}
+
+.service-card p:last-child {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.solutions-layout {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+.solution-tabs {
+  display: grid;
+  gap: 10px;
+  align-self: start;
+  position: sticky;
+  top: 96px;
+}
+
+.solution-tab {
+  width: 100%;
+  min-height: 64px;
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  border-left: 4px solid transparent;
+  background: var(--paper);
+  color: var(--navy-900);
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.solution-tab span {
+  display: block;
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.solution-tab strong {
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+.solution-tab.is-active {
+  border-left-color: var(--orange);
+  background: var(--navy-900);
+  color: var(--paper);
+}
+
+.solution-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  min-height: 630px;
+}
+
+.solution-copy {
+  padding: 42px;
+  display: grid;
+  align-content: start;
+}
+
+.solution-tag {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.solution-copy h3 {
+  color: var(--navy-900);
+  font-family: Manrope, Montserrat, Arial, sans-serif;
+  font-size: 42px;
+  line-height: 1.02;
+  margin-bottom: 18px;
+}
+
+.solution-copy .lead-text {
+  max-width: 660px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.52;
+  margin-bottom: 26px;
+}
+
+.proof-list {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.proof-list li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--text);
+}
+
+.proof-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .66em;
+  width: 9px;
+  height: 9px;
+  background: var(--orange);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.mini-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.mini-flow div {
+  min-height: 104px;
+  padding: 16px;
+  background: var(--soft);
+  border-top: 3px solid var(--orange);
+}
+
+.mini-flow strong {
+  display: block;
+  color: var(--navy-900);
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.mini-flow span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.solution-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 620px;
+  background: var(--navy-900);
+}
+
+.solution-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: .92;
+}
+
+.solution-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 26, 44, .02), rgba(8, 26, 44, .52));
+}
+
+.solution-media .media-logo {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  width: 116px;
+  height: auto;
+  object-fit: contain;
+  opacity: .88;
+  z-index: 2;
+}
+
+.dynamic-band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, .18);
+}
+
+.dynamic-copy {
+  padding: 42px;
+  background: rgba(255, 255, 255, .06);
+  min-height: 420px;
+}
+
+.dynamic-copy h2 { margin-bottom: 22px; }
+
+.script-box {
+  padding: 32px;
+  background: var(--paper);
+  color: var(--text);
+  min-height: 420px;
+}
+
+.script-label {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.script-text {
+  color: var(--navy-900);
+  font-size: 25px;
+  line-height: 1.28;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+.select-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.select-row label {
+  color: #C9D3DC;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.select-row select {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  background: rgba(255, 255, 255, .08);
+  color: var(--paper);
+  border-radius: 4px;
+  outline: none;
+}
+
+.select-row option { color: var(--ink); }
+
+.route-stack {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.route-stack li {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  color: #DDE4EA;
+}
+
+.route-stack b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--orange);
+  color: var(--paper);
+  border-radius: 50%;
+}
+
+.route-stack span {
+  padding-top: 4px;
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.evidence-item {
+  padding: 28px;
+  min-height: 198px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.evidence-number {
+  color: var(--orange);
+  font-family: Manrope, Montserrat, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 950;
+  line-height: 1.08;
+  letter-spacing: 0;
+  margin-bottom: 16px;
+}
+
+.evidence-item strong {
+  display: block;
+  color: var(--navy-900);
+  font-size: 18px;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.evidence-item p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.downloads {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.download-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 72px;
+  padding: 18px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.download-link:hover { border-color: var(--orange); }
+
+.download-link strong {
+  color: var(--navy-900);
+  font-size: 15px;
+}
+
+.download-link span {
+  color: var(--orange);
+  font-weight: 950;
+}
+
+.quote-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(420px, 1fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.quote-note {
+  padding: 32px;
+  background: var(--navy-900);
+  color: var(--paper);
+  border-top: 4px solid var(--orange);
+}
+
+.quote-note h2 {
+  color: var(--paper);
+  margin-bottom: 18px;
+}
+
+.quote-note p {
+  color: #C9D3DC;
+  margin-bottom: 18px;
+}
+
+.quote-note ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quote-note li {
+  position: relative;
+  padding-left: 22px;
+  color: #DDE4EA;
+}
+
+.quote-note li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 8px;
+  height: 8px;
+  background: var(--orange);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.quote-shell {
+  display: grid;
+  gap: 14px;
+}
+
+.quote-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 6px;
+  background: #EAF0F5;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.quote-mode {
+  display: grid;
+  gap: 4px;
+  min-height: 82px;
+  padding: 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--navy-900);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.quote-mode span {
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.quote-mode small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.quote-mode:hover,
+.quote-mode.is-active {
+  background: var(--paper);
+  border-color: rgba(243, 112, 5, .36);
+}
+
+.quote-mode.is-active {
+  box-shadow: 0 12px 26px rgba(8, 26, 44, .09);
+}
+
+.quote-mode.is-active span { color: var(--orange); }
+
+.quote-mode:focus-visible {
+  outline: 3px solid rgba(243, 112, 5, .32);
+  outline-offset: 2px;
+}
+
+.quote-form {
+  display: grid;
+  gap: 16px;
+  padding: 30px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.quote-form[hidden] { display: none; }
+
+.quote-form-heading {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.quote-form-heading strong {
+  color: var(--navy-900);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.quote-form-heading span {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field label {
+  color: var(--navy-900);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 12px 13px;
+  color: var(--navy-900);
+  background: #FAFBFC;
+  outline: none;
+}
+
+.field textarea {
+  min-height: 106px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--orange);
+  background: var(--paper);
+}
+
+.form-microcopy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.form-consent {
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.contact-actions {
+  display: grid;
+  gap: 14px;
+  justify-items: end;
+}
+
+.contact-hint {
+  max-width: 340px;
+  margin: 0;
+  color: #B8C4CE;
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--navy-900);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.social-link svg,
+.button-primary svg,
+.button-dark svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+.social-link:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.final-cta .social-link {
+  border-color: rgba(255, 255, 255, .24);
+  background: rgba(255, 255, 255, .08);
+  color: var(--paper);
+}
+
+.final-cta .social-link:hover {
+  border-color: rgba(243, 112, 5, .8);
+  background: rgba(243, 112, 5, .14);
+  color: var(--paper);
+}
+
+.floating-whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: var(--paper);
+  text-decoration: none;
+  box-shadow: 0 18px 38px rgba(8, 26, 44, .26);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.floating-whatsapp svg {
+  width: 30px;
+  height: 30px;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-2px);
+  background: #1FB85A;
+  box-shadow: 0 22px 44px rgba(8, 26, 44, .32);
+}
+
+.floating-whatsapp::before {
+  content: "Conversar no WhatsApp";
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  min-width: max-content;
+  padding: 9px 11px;
+  border-radius: 4px;
+  background: var(--navy-900);
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(8px, -50%);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.floating-whatsapp:hover::before {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.final-cta {
+  position: relative;
+  overflow: hidden;
+  padding: 76px 0;
+  background: var(--navy-900);
+  color: var(--paper);
+}
+
+.final-cta::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  width: 420px;
+  height: 260px;
+  background: var(--orange);
+  opacity: .12;
+  transform: translateY(-50%);
+  clip-path: polygon(0 22%, 68% 22%, 68% 0, 100% 50%, 68% 100%, 68% 78%, 0 78%);
+}
+
+.final-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: center;
+}
+
+.final-grid h2 {
+  color: var(--paper);
+  max-width: 760px;
+  margin-bottom: 14px;
+}
+
+.final-grid p {
+  max-width: 690px;
+  color: #B8C4CE;
+  margin-bottom: 0;
+  font-size: 17px;
+}
+
+.final-grid .contact-hint {
+  max-width: 340px;
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.footer {
+  padding: 64px 0 36px;
+  background: var(--navy-950);
+  color: #B8C4CE;
+}
+
+.footer-inner {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 1.12fr) minmax(230px, .72fr) minmax(280px, .86fr);
+  align-items: start;
+  gap: 72px;
+  font-size: 13px;
+}
+
+.footer-brand {
+  min-width: 0;
+}
+
+.footer-logo-box {
+  width: 180px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.footer-logo-box img {
+  width: 100%;
+  height: auto;
+  max-height: 54px;
+  object-fit: contain;
+}
+
+.footer-brand p {
+  max-width: 360px;
+  margin: 0 0 20px;
+  color: #8EA0B2;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.footer-badge {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .16em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.footer-title {
+  margin: 0 0 18px;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.footer-contact,
+.footer-addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.footer-channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 4px;
+  color: #DDE4EA;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.footer-channel svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  color: var(--orange);
+}
+
+.footer-channel:hover {
+  border-color: rgba(243, 112, 5, .86);
+  background: rgba(243, 112, 5, .12);
+  color: var(--paper);
+}
+
+.footer-address {
+  display: block;
+  max-width: 310px;
+  padding: 10px 0;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.footer-address:hover {
+  border-color: rgba(243, 112, 5, .54);
+  transform: translateX(2px);
+}
+
+.footer-address strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #DDE4EA;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.footer-address span {
+  display: block;
+  color: #7E91A6;
+  line-height: 1.45;
+}
+
+.footer-bottom {
+  width: min(1180px, calc(100% - 40px));
+  margin: 48px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: #52677D;
+  font-size: 12px;
+}
+
+.footer-bottom strong {
+  color: #6F8399;
+  font-weight: 800;
+}
+
+@media (max-width: 1020px) {
+  .nav { height: auto; min-height: 72px; padding: 10px 0; }
+  .nav-links { display: none; }
+  .nav-actions { margin-left: auto; }
+  .hero-media { inset-left: 24%; }
+  h1 { font-size: 56px; }
+  .hero-proof { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 620px; }
+  .section-head,
+  .base-grid,
+  .solutions-layout,
+  .solution-panel,
+  .dynamic-band,
+  .quote-layout,
+  .final-grid {
+    grid-template-columns: 1fr;
+  }
+  .solution-tabs { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .solution-media { min-height: 360px; order: -1; }
+  .evidence-grid,
+  .service-grid,
+  .downloads { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-actions { justify-items: start; }
+  .final-grid .contact-hint { text-align: left; }
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 38px;
+  }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+  .nav {
+    width: calc(100% - 28px);
+    gap: 12px;
+    justify-content: space-between;
+  }
+  .nav-logo img { width: 138px; max-height: 42px; }
+  .nav-cta { display: none; }
+  .client-area-link {
+    min-height: 40px;
+    padding: 0 11px;
+    font-size: 10px;
+    letter-spacing: .06em;
+  }
+  .floating-whatsapp {
+    right: 14px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+  }
+  .floating-whatsapp svg {
+    width: 27px;
+    height: 27px;
+  }
+  .floating-whatsapp::before { display: none; }
+  .hero { min-height: 650px; }
+  .hero-inner {
+    min-height: 650px;
+    width: calc(100% - 28px);
+    padding: 42px 0 38px;
+  }
+  .hero-content { width: 100%; max-width: 100%; }
+  .hero-media { inset: 0; opacity: .52; }
+  h1 {
+    width: 100%;
+    max-width: 330px;
+    font-size: 34px;
+    line-height: 1.04;
+  }
+  .hero-lead,
+  .hero-microcopy { max-width: 330px; font-size: 16px; }
+  .hero-microcopy { font-size: 13px; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; }
+  .button-primary,
+  .button-secondary,
+  .button-dark { width: 100%; }
+  .hero-proof { grid-template-columns: 1fr; max-width: 330px; margin-top: 30px; }
+  .proof-item { padding: 13px; }
+  .proof-item strong { font-size: 18px; }
+  .proof-item span { font-size: 10px; }
+  .flow-ribbon-inner,
+  .context-grid,
+  .base-facts,
+  .fit-tabs,
+  .quote-switch,
+  .service-grid,
+  .mini-flow,
+  .evidence-grid,
+  .downloads {
+    grid-template-columns: 1fr;
+  }
+  .flow-step,
+  .flow-step:nth-child(2),
+  .flow-step:last-child {
+    padding: 22px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .flow-step p { max-width: 320px; }
+  .flow-step::after { display: none; }
+  .base-section { padding: 42px 0; }
+  .base-grid { width: calc(100% - 28px); }
+  .base-copy,
+  .fit-tool { padding: 26px; }
+  .fit-tool-header { display: block; }
+  .section { padding: 64px 0; }
+  .container { width: calc(100% - 28px); }
+  h2 { font-size: 34px; }
+  .section-summary { font-size: 16px; }
+  .context-card { min-height: auto; padding: 24px; }
+  .solution-tabs { grid-template-columns: 1fr; }
+  .solution-copy { padding: 28px; }
+  .solution-copy h3 { font-size: 32px; }
+  .solution-copy .lead-text { font-size: 16px; }
+  .solution-media { min-height: 300px; }
+  .dynamic-copy,
+  .script-box,
+  .quote-note,
+  .quote-form { padding: 28px; min-height: auto; }
+  .quote-layout { grid-template-columns: 1fr; }
+  .script-text { font-size: 21px; }
+  .final-cta { padding: 56px 0; }
+  .social-links { width: 100%; }
+  .social-link { flex: 1 1 136px; }
+  .footer { padding: 48px 0 30px; }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: calc(100% - 28px);
+  }
+  .footer-brand { grid-column: auto; }
+  .footer-contact { width: 100%; }
+  .footer-channel { width: 100%; justify-content: flex-start; }
+  .footer-bottom {
+    width: calc(100% - 28px);
+    margin-top: 34px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+<div class="site-shell">
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+      <path d="M5.2 19.2l.9-3.1A7.4 7.4 0 1 1 8 18.1l-2.8 1.1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M9.2 8.7c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.5c.1.2.1.4-.1.6l-.4.5c.7 1.2 1.7 2.1 3 2.7l.5-.6c.2-.2.4-.3.7-.2l1.5.7c.3.1.4.3.4.6v.5c0 .4-.3.7-.7.8-.9.2-2.9-.2-4.8-1.8-1.9-1.6-2.8-3.7-2.9-4.7 0-.2 0-.4.1-.5Z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <rect x="4" y="4" width="16" height="16" rx="4.2" fill="none" stroke="currentColor" stroke-width="1.8" />
+      <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+      <circle cx="17" cy="7" r="1.1" fill="currentColor" />
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path d="M6.8 9.7h3v8.1h-3V9.7Zm1.5-3.8a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4Zm4.2 3.8h2.8v1.1c.5-.8 1.3-1.3 2.5-1.3 2.1 0 3.4 1.4 3.4 4.1v4.2h-3v-3.9c0-1.1-.4-1.8-1.4-1.8-.9 0-1.3.6-1.5 1.2-.1.2-.1.5-.1.8v3.7h-3V9.7Z" fill="currentColor" />
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+      <rect x="4" y="6" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8" />
+      <path d="m5.2 7.4 6.8 5.2 6.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-client" viewBox="0 0 24 24">
+      <rect x="4" y="5" width="16" height="14" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.8" />
+      <path d="M8 9h8M8 13h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+      <path d="M16.2 13.8 19 16.6m0-2.8v2.8h-2.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+  </svg>
+  <header class="topbar">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="nav-logo" href="#inicio" aria-label="JLS Log">
+        <img src="../assets/logo/jls-logo-horizontal-light.png" alt="JLS Log Soluções Logísticas" />
+      </a>
+      <div class="nav-links">
+        <a href="#operacao">Operação</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#porque-jls">Por que a JLS</a>
+        <a href="#cotacao">Cotação</a>
+      </div>
+      <div class="nav-actions">
+        <a class="client-area-link" href="https://badheco.netlify.app/portal.html" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#icon-client"></use></svg>Portal do cliente</a>
+        <a class="nav-cta" href="#cotacao">Falar com a JLS</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media">
+        <img src="../assets/conexao-mt.png" alt="Operação logística em doca com volumes sendo conferidos" />
+      </div>
+      <img class="hero-mark" src="../assets/logo/jls-logo-symbol-transparent.png" alt="" aria-hidden="true" />
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow">JLS Log · Soluções logísticas</p>
+          <h1 id="hero-title">Solução logística no Mato Grosso para empresas que precisam chegar mais <span class="accent">longe.</span></h1>
+          <p class="hero-lead">Com base em Cuiabá, ajudamos empresas de fora a operar no estado e empresas regionais a chegar ao Brasil. Estruturamos recebimento, transferência, distribuição, last mile, reversa e cargas sensíveis com malha rodoviária, Azul Logística e atendimento próximo.</p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#cotacao">Conversar sobre minha operação</a>
+            <a class="button-secondary" href="#solucoes">Ver soluções por segmento</a>
+          </div>
+          <p class="hero-microcopy">Para e-commerce, agro, saúde, biológicos, institucional, indústrias, transportadoras, distribuidores e operações especiais: a conversa começa pelo cenário real da carga, não por uma tabela genérica.</p>
+          <div class="hero-proof" aria-label="Diferenciais operacionais">
+            <div class="proof-item"><strong>500m²</strong><span>área operacional em Cuiabá</span></div>
+            <div class="proof-item"><strong>7 min</strong><span>do aeroporto</span></div>
+            <div class="proof-item"><strong>Azul</strong><span>representação Logística</span></div>
+            <div class="proof-item"><strong>Sebrae</strong><span>contrato licitatório no MT</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flow-ribbon" aria-label="Fluxo JLS">
+      <div class="flow-ribbon-inner">
+        <div class="flow-step">
+          <span class="step-label">01 entrada</span>
+          <strong>A carga chega com contexto.</strong>
+          <p>Origem, destino, urgência, tipo de carga e retorno esperado.</p>
+        </div>
+        <div class="flow-step">
+          <span class="step-label">02 orquestração</span>
+          <strong>A rota vira operação.</strong>
+          <p>Rodoviário, apoio aéreo, transferência, last mile, reversa ou rota dedicada.</p>
+        </div>
+        <div class="flow-step">
+          <span class="step-label">03 comprovação</span>
+          <strong>A entrega volta como informação.</strong>
+          <p>Comprovante, rastreio, ocorrência, reversa e dados para decisão.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="base-section" id="base">
+      <div class="base-grid">
+        <div class="base-copy">
+          <div class="section-kicker">Base operacional em Cuiabá</div>
+          <h2>Estrutura local para receber, organizar e conversar sobre a operação de perto.</h2>
+          <p>A JLS conta com uma área operacional de 500 m² em Cuiabá, a 7 minutos do aeroporto, com espaço para recebimento, conferência, triagem e estacionamento para clientes e parceiros que precisam alinhar a operação presencialmente.</p>
+          <div class="base-facts" aria-label="Estrutura operacional JLS">
+            <div class="base-fact"><strong>500m²</strong><span>área operacional</span></div>
+            <div class="base-fact"><strong>7 min</strong><span>do aeroporto</span></div>
+            <div class="base-fact"><strong>Cuiabá</strong><span>entrada e triagem</span></div>
+            <div class="base-fact"><strong>Presencial</strong><span>estacionamento para clientes</span></div>
+          </div>
+        </div>
+        <div class="fit-tool">
+          <div class="fit-tool-header">
+            <div>
+              <div class="section-kicker">Encontre seu ponto de entrada</div>
+              <h3>Como a JLS pode entrar na sua operação?</h3>
+              <p>Selecione o cenário mais próximo da sua realidade.</p>
+            </div>
+          </div>
+          <div class="fit-tabs" role="tablist" aria-label="Cenários de operação">
+            <button class="fit-tab is-active" type="button" data-fit="fora">Sou empresa de fora do MT</button>
+            <button class="fit-tab" type="button" data-fit="regional">Sou empresa regional</button>
+            <button class="fit-tab" type="button" data-fit="ecommerce">Tenho operação de e-commerce</button>
+            <button class="fit-tab" type="button" data-fit="critica">Tenho carga crítica</button>
+          </div>
+          <div class="fit-result" aria-live="polite">
+            <strong id="fit-title">Sua presença logística dentro do Mato Grosso.</strong>
+            <p id="fit-copy">A JLS pode receber a carga em Cuiabá, organizar por destino, distribuir no estado e retornar informação para sua equipe.</p>
+            <ul id="fit-list">
+              <li>Base local para entrada e triagem.</li>
+              <li>Distribuição na capital e interior.</li>
+              <li>Comprovante e retorno operacional.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="operacao">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Presença local, conexão nacional</div>
+            <h2>Estar no Mato Grosso não pode significar operar com desvantagem logística.</h2>
+          </div>
+          <p class="section-summary">Para empresas de fora, o desafio é ter alguém no estado que receba, organize e responda pela entrega. Para empresas regionais, o desafio é competir com operações conectadas aos grandes centros. A JLS atua nesse intervalo.</p>
+        </div>
+
+        <div class="context-grid">
+          <article class="context-card">
+            <span class="num">1</span>
+            <h3>Para empresas de fora do MT</h3>
+            <p>Uma base local para receber cargas, distribuir no estado e retornar informação com controle.</p>
+          </article>
+          <article class="context-card">
+            <span class="num">2</span>
+            <h3>Para empresas regionais</h3>
+            <p>Apoio logístico para conectar Mato Grosso ao Brasil sem depender de improviso ou soluções distantes.</p>
+          </article>
+          <article class="context-card">
+            <span class="num">3</span>
+            <h3>Para operações nacionais</h3>
+            <p>Extensão regional para e-commerce, transportadoras, indústrias, distribuidores e contratos com SLA.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Serviços para decisão B2B</div>
+            <h2>Logística para quem precisa decidir com prazo, custo, risco e comprovação na mesa.</h2>
+          </div>
+          <p class="section-summary">A JLS organiza serviços pelo resultado que o decisor precisa defender: cobertura, previsibilidade, rastreio, reversa, entrada no Mato Grosso e conexão com o Brasil.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span>Cobertura estadual</span>
+            <h3>Distribuição no Mato Grosso</h3>
+            <p class="decision">Amplie cobertura sem montar base própria em cada cidade.</p>
+            <p>Recebimento em Cuiabá, separação por destino, distribuição para capital e interior, comprovante de entrega e retorno de informação.</p>
+          </article>
+          <article class="service-card">
+            <span>Transferência</span>
+            <h3>Middle mile e entrada de carga</h3>
+            <p class="decision">Movimente carga entre origem, base, CD, transportadora ou ponto de distribuição com previsibilidade.</p>
+            <p>Apoio para transferências regionais, cargas vindas de outros estados e redistribuição dentro do Mato Grosso.</p>
+          </article>
+          <article class="service-card">
+            <span>Cliente final</span>
+            <h3>Last mile e logística reversa</h3>
+            <p class="decision">Entregue ao cliente final ou ponto comercial e trate devoluções sem perder controle.</p>
+            <p>Operação para e-commerce, distribuidores, varejo, saúde, peças, insumos e demandas com prova de entrega.</p>
+          </article>
+          <article class="service-card">
+            <span>Urgência</span>
+            <h3>Apoio aéreo via Azul Logística</h3>
+            <p class="decision">Reduza tempo de resposta quando a urgência não cabe apenas na rota rodoviária.</p>
+            <p>Representação Azul Logística para conectar Mato Grosso a outras regiões do Brasil, com apoio em coletas, embarques e recebimentos.</p>
+          </article>
+          <article class="service-card">
+            <span>Controle</span>
+            <h3>Operações críticas e cargas sensíveis</h3>
+            <p class="decision">Reduza risco operacional, técnico ou contratual.</p>
+            <p>Fluxos para agro, saúde, biológicos, peças críticas, insumos e cargas que precisam de rastreabilidade por etapa.</p>
+          </article>
+          <article class="service-card">
+            <span>Compliance</span>
+            <h3>Operações auditáveis</h3>
+            <p class="decision">Contrate logística que suporte documentação, SLA e prestação de contas.</p>
+            <p>Operação preparada para órgãos institucionais, empresas públicas e privadas, contratos homologados e demandas com governança.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solucoes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Soluções por particularidade</div>
+            <h2>Cada operação tem sua particularidade. Escolha o cenário mais próximo da sua demanda.</h2>
+          </div>
+          <p class="section-summary">Uma entrega de e-commerce, uma peça crítica no agro, uma amostra que exige custódia ou um contrato auditável pedem conversas diferentes. Selecione o cenário e veja como a JLS pode apoiar com rota, prazo, comprovação e cobertura no Mato Grosso.</p>
+        </div>
+
+        <div class="solutions-layout">
+          <div class="solution-tabs" role="tablist" aria-label="Soluções JLS">
+            <button class="solution-tab is-active" type="button" data-solution="ecommerce"><span>Escala regional</span><strong>E-commerce</strong></button>
+            <button class="solution-tab" type="button" data-solution="conexao"><span>Base local</span><strong>Conexão MT</strong></button>
+            <button class="solution-tab" type="button" data-solution="agro"><span>Urgência</span><strong>Agro</strong></button>
+            <button class="solution-tab" type="button" data-solution="biologicos"><span>Custódia</span><strong>Biológicos</strong></button>
+            <button class="solution-tab" type="button" data-solution="saude"><span>Cobertura</span><strong>Saúde</strong></button>
+            <button class="solution-tab" type="button" data-solution="institucional"><span>Auditoria</span><strong>Institucional</strong></button>
+            <button class="solution-tab" type="button" data-solution="global"><span>Internacional</span><strong>Global</strong></button>
+          </div>
+
+          <article class="solution-panel" aria-live="polite">
+            <div class="solution-copy">
+              <div class="solution-tag" id="solution-tag">E-commerce no Mato Grosso</div>
+              <h3 id="solution-title">Transferência, last mile e reversa sob controle.</h3>
+              <p class="lead-text" id="solution-lead">Para marketplaces, lojas virtuais, operadores, transportadoras e distribuidores, a JLS apoia middle mile, entrada de carga no estado, distribuição regional, entregas finais e logística reversa.</p>
+              <ul class="proof-list" id="solution-proofs"></ul>
+              <div class="mini-flow" id="solution-flow"></div>
+              <div class="section-actions">
+                <a class="button-primary" id="solution-cta" href="https://wa.me/5565981428733?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JLS%20e%20quero%20falar%20sobre%20ter%20um%20parceiro%20log%C3%ADstico%20no%20Mato%20Grosso." target="_blank" rel="noopener">Conversar sobre este cenário</a>
+              </div>
+            </div>
+            <div class="solution-media">
+              <img id="solution-image" src="../assets/conexao-mt.png" alt="Operação logística para e-commerce no Mato Grosso" />
+              <img class="media-logo" src="../assets/logo/jls-logo-negative-transparent.png" alt="JLS Log" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="conversa">
+      <div class="container">
+        <div class="dynamic-band">
+          <div class="dynamic-copy">
+            <div class="section-kicker">Diagnóstico rápido</div>
+            <h2>Escolha o cenário mais próximo da sua operação.</h2>
+            <p class="section-summary">Veja como a JLS pode entrar no seu fluxo: receber, organizar, distribuir, comprovar ou conectar sua carga ao Mato Grosso e ao Brasil. A conversa começa pelo que importa para decidir: origem, destino, prazo, risco e controle.</p>
+            <div class="select-row">
+              <label for="scenario-select">Cenário</label>
+              <select id="scenario-select" aria-label="Escolha o cenário logístico">
+                <option value="ecommerce">E-commerce</option>
+                <option value="conexao">Conexão MT</option>
+                <option value="agro">Agro</option>
+                <option value="biologicos">Biológicos</option>
+                <option value="saude">Saúde</option>
+                <option value="institucional">Institucional</option>
+                <option value="global">Global</option>
+              </select>
+            </div>
+            <ol class="route-stack" id="route-stack"></ol>
+          </div>
+          <div class="script-box">
+            <div class="script-label">Mensagem para iniciar</div>
+            <p class="script-text" id="script-text">Tenho cargas chegando em Cuiabá e preciso entender como a JLS pode receber, distribuir e responder pela entrega no Mato Grosso.</p>
+            <a class="button-dark" id="script-link" href="https://wa.me/5565981428733?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JLS%20e%20quero%20falar%20sobre%20ter%20um%20parceiro%20log%C3%ADstico%20no%20Mato%20Grosso." target="_blank" rel="noopener">Conversar sobre este cenário</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="porque-jls">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Por que a JLS</div>
+            <h2>Operação local, resposta próxima e compromisso para construir junto.</h2>
+          </div>
+          <p class="section-summary">A JLS é uma empresa local em fase de escala. Já atua em operações que pedem controle, documentação e compromisso, e cresce com parceiros que valorizam proximidade, responsabilidade e construção de longo prazo.</p>
+        </div>
+        <div class="evidence-grid">
+          <div class="evidence-item">
+            <div class="evidence-number">Sebrae-MT</div>
+            <strong>Contrato licitatório Sebrae-MT</strong>
+            <p>Governança, documentação, SLA e capacidade para atender operações institucionais, públicas ou privadas.</p>
+          </div>
+          <div class="evidence-item">
+            <div class="evidence-number">Azul Logística</div>
+            <strong>Representação Azul Logística</strong>
+            <p>Conexão nacional, apoio aéreo e contato com padrões operacionais exigidos por grandes fluxos.</p>
+          </div>
+          <div class="evidence-item">
+            <div class="evidence-number">Cuiabá</div>
+            <strong>Base operacional em Cuiabá</strong>
+            <p>Presença local, conhecimento de rota, interior, prazos e particularidades reais do Mato Grosso.</p>
+          </div>
+          <div class="evidence-item">
+            <div class="evidence-number">Em escala</div>
+            <strong>Operação em crescimento</strong>
+            <p>Vivência com demandas ligadas a grandes players e abertura para construir parcerias de longo prazo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="cotacao">
+      <div class="container">
+        <div class="quote-layout">
+          <div class="quote-note">
+            <div class="section-kicker">Cotação logística</div>
+            <h2>Escolha o melhor caminho para falar com a JLS.</h2>
+            <p>Se sua empresa quer estruturar uma operação recorrente, solicite uma análise logística. Se já existe uma carga pontual com origem, destino e urgência definidos, use a cotação rápida.</p>
+            <ul>
+              <li>Análise para operação recorrente, parceria ou expansão.</li>
+              <li>Cotação rápida para carga pontual com dados essenciais.</li>
+              <li>Atendimento próximo para construir a melhor resposta junto.</li>
+            </ul>
+          </div>
+          <div class="quote-shell">
+            <div class="quote-switch" aria-label="Escolha o tipo de cotação">
+              <button class="quote-mode is-active" type="button" data-quote-mode="analysis" aria-controls="quote-form" aria-pressed="true">
+                <span>Análise logística</span>
+                <small>Para parceria, operação recorrente ou demanda institucional.</small>
+              </button>
+              <button class="quote-mode" type="button" data-quote-mode="quick" aria-controls="quick-quote-form" aria-pressed="false">
+                <span>Cotação rápida</span>
+                <small>Para uma operação pontual que precisa de retorno ágil.</small>
+              </button>
+            </div>
+
+            <form class="quote-form" id="quote-form" data-quote-panel="analysis">
+              <div class="quote-form-heading">
+                <strong>Análise logística para sua operação.</strong>
+                <span>Indicado para demandas recorrentes, expansão no Mato Grosso, parceria operacional ou decisão com mais envolvidos.</span>
+              </div>
+              <div class="field">
+                <label for="quote-name">Nome e empresa</label>
+                <input id="quote-name" name="name" type="text" required placeholder="Seu nome · Empresa" />
+              </div>
+              <div class="field">
+                <label for="quote-contact">WhatsApp ou e-mail</label>
+                <input id="quote-contact" name="contact" type="text" required placeholder="(65) 00000-0000 ou email@empresa.com.br" />
+              </div>
+              <div class="field">
+                <label for="quote-operation">Tipo de operação</label>
+                <select id="quote-operation" name="operation" required>
+                  <option value="">Selecione</option>
+                  <option>E-commerce</option>
+                  <option>Distribuição no MT</option>
+                  <option>Transferência / middle mile</option>
+                  <option>Last mile</option>
+                  <option>Logística reversa</option>
+                  <option>Agro</option>
+                  <option>Saúde</option>
+                  <option>Biológicos</option>
+                  <option>Institucional / compliance</option>
+                  <option>Envio internacional</option>
+                  <option>Outro / quero explicar</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="quote-route">Origem e destino principal</label>
+                <input id="quote-route" name="route" type="text" required placeholder="Ex.: São Paulo > Cuiabá > interior do MT" />
+              </div>
+              <div class="field">
+                <label for="quote-volume">Volume ou frequência estimada</label>
+                <input id="quote-volume" name="volume" type="text" required placeholder="Ex.: semanal, mensal, sob demanda, 30 volumes/dia" />
+              </div>
+              <div class="field">
+                <label for="quote-need">O que precisa resolver?</label>
+                <textarea id="quote-need" name="need" required placeholder="Prazo, tipo de carga, urgência, reversa, comprovação, cidade de destino..."></textarea>
+              </div>
+              <button class="button-primary" type="submit">Enviar briefing pelo WhatsApp</button>
+              <p class="form-microcopy">O WhatsApp abre com o contexto organizado: operação, rota, volume e necessidade principal.</p>
+              <p class="form-consent">Ao enviar, você autoriza a JLS a usar essas informações para retornar sua solicitação comercial.</p>
+            </form>
+
+            <form class="quote-form" id="quick-quote-form" data-quote-panel="quick" hidden>
+              <div class="quote-form-heading">
+                <strong>Cotação rápida para uma operação pontual.</strong>
+                <span>Use quando você já tem origem, destino, características da carga e prazo desejado.</span>
+              </div>
+              <div class="field">
+                <label for="quick-company">Empresa e contato</label>
+                <input id="quick-company" name="company" type="text" required placeholder="Empresa · Nome · WhatsApp" />
+              </div>
+              <div class="field">
+                <label for="quick-origin">Origem</label>
+                <input id="quick-origin" name="origin" type="text" required placeholder="Cidade/UF ou endereço de coleta" />
+              </div>
+              <div class="field">
+                <label for="quick-destination">Destino</label>
+                <input id="quick-destination" name="destination" type="text" required placeholder="Cidade/UF ou endereço de entrega" />
+              </div>
+              <div class="field">
+                <label for="quick-cargo">Dimensões e peso por volume</label>
+                <input id="quick-cargo" name="cargo" type="text" required placeholder="Ex.: 3 volumes · 40x30x25 cm · 18 kg cada" />
+              </div>
+              <div class="field">
+                <label for="quick-urgency">Urgência da operação</label>
+                <select id="quick-urgency" name="urgency" required>
+                  <option value="">Selecione</option>
+                  <option>Hoje / até 24h</option>
+                  <option>Até 48h</option>
+                  <option>Esta semana</option>
+                  <option>Operação programada</option>
+                  <option>Preciso alinhar com a JLS</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="quick-notes">Informações adicionais</label>
+                <textarea id="quick-notes" name="notes" placeholder="Tipo de produto, restrição de horário, nota fiscal, necessidade de coleta, comprovante ou cuidado especial."></textarea>
+              </div>
+              <button class="button-primary" type="submit">Enviar cotação rápida pelo WhatsApp</button>
+              <p class="form-microcopy">A mensagem chega organizada para a JLS avaliar a operação e retornar o mais breve possível.</p>
+              <p class="form-consent">Ao enviar, você autoriza a JLS a usar essas informações para retornar sua solicitação comercial.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="materiais">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Guias por cenário</div>
+            <h2>Leve a conversa logística para o seu time com mais clareza.</h2>
+          </div>
+          <p class="section-summary">Se você precisa envolver compras, operação, diretoria ou parceiros, escolha o material do cenário mais próximo da sua demanda e use como ponto de partida para discutir rota, prazo, risco e cobertura no Mato Grosso.</p>
+        </div>
+        <div class="downloads">
+          <a class="download-link" href="../pdfs_individuais/JLS_00_Ecommerce.pdf" target="_blank"><strong>E-commerce</strong><span>PDF</span></a>
+          <a class="download-link" href="../pdfs_individuais/JLS_01_Conexao_MT.pdf" target="_blank"><strong>Conexão MT</strong><span>PDF</span></a>
+          <a class="download-link" href="../pdfs_individuais/JLS_02_Agro.pdf" target="_blank"><strong>Agro</strong><span>PDF</span></a>
+          <a class="download-link" href="../pdfs_individuais/JLS_03_Biologicos.pdf" target="_blank"><strong>Biológicos</strong><span>PDF</span></a>
+          <a class="download-link" href="../pdfs_individuais/JLS_04_Saude.pdf" target="_blank"><strong>Saúde</strong><span>PDF</span></a>
+          <a class="download-link" href="../pdfs_individuais/JLS_05_Institucional.pdf" target="_blank"><strong>Institucional</strong><span>PDF</span></a>
+          <a class="download-link" href="../pdfs_individuais/JLS_06_Global.pdf" target="_blank"><strong>Global</strong><span>PDF</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contato">
+      <div class="container">
+        <div class="final-grid">
+          <div>
+            <div class="section-kicker">Próximo movimento</div>
+            <h2>Vamos construir uma operação logística melhor para o Mato Grosso, juntos?</h2>
+            <p>A JLS combina presença local, conhecimento regional, malha rodoviária, representação Azul Logística e experiência em operações auditáveis. Estamos em fase de escala e acreditamos que as parcerias estabelecidas agora podem definir o crescimento mútuo dos próximos anos.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button-primary" href="https://wa.me/5565981428733?text=Ol%C3%A1%2C%20quero%20construir%20uma%20parceria%20log%C3%ADstica%20com%20a%20JLS%20no%20Mato%20Grosso." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg>Começar conversa no WhatsApp</a>
+            <p class="contact-hint">Traga seu cenário de origem, destino, prazo ou volume. A JLS responde com visão operacional, não só com tabela.</p>
+            <div class="social-links" aria-label="Canais institucionais da JLS">
+              <a class="social-link" href="https://www.instagram.com/jls.log/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#icon-instagram"></use></svg>Instagram</a>
+              <a class="social-link" href="https://www.linkedin.com/company/jlslog/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#icon-linkedin"></use></svg>LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-box">
+          <img src="../assets/logo/jls-logo-horizontal-light.png" alt="JLS Log Soluções Logísticas" />
+        </div>
+        <p>Logística regional com proximidade, padrão operacional e vontade de construir parcerias de longo prazo no Mato Grosso.</p>
+        <div class="footer-badge">Representante autorizado Azul Logística · CGB05</div>
+      </div>
+      <div>
+        <div class="footer-title">Contato</div>
+        <div class="footer-contact" aria-label="Canais de contato da JLS">
+          <a class="footer-channel" href="https://wa.me/5565981428733?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JLS%20e%20quero%20conversar%20sobre%20uma%20opera%C3%A7%C3%A3o%20log%C3%ADstica." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg>(65) 98142-8733</a>
+          <a class="footer-channel" href="mailto:comercial@jlslog.com.br"><svg aria-hidden="true"><use href="#icon-mail"></use></svg>comercial@jlslog.com.br</a>
+          <a class="footer-channel" href="https://www.instagram.com/jls.log/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#icon-instagram"></use></svg>Instagram</a>
+          <a class="footer-channel" href="https://www.linkedin.com/company/jlslog/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#icon-linkedin"></use></svg>LinkedIn</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Endereços</div>
+        <div class="footer-addresses">
+          <a class="footer-address" href="https://maps.app.goo.gl/fbXojSaVm4hV9m8x8" target="_blank" rel="noopener">
+            <strong>Loja Azul Logística (CGB05)</strong>
+            <span>R. Dep. Milton de Figueiredo, 750-A<br />Morada do Ouro · Cuiabá/MT</span>
+          </a>
+          <a class="footer-address" href="https://share.google/rXi2NlZImIngfsBQJ" target="_blank" rel="noopener">
+            <strong>Unidade Operacional</strong>
+            <span>R. Barão de Melgaço, 816<br />Porto · Cuiabá/MT</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 JLS Soluções Logísticas · Cuiabá, Mato Grosso · CNPJ 20.162.078/0001-10</span>
+      <strong>Não vendemos frete. Entregamos solução.</strong>
+    </div>
+  </footer>
+  <a class="floating-whatsapp" href="https://wa.me/5565981428733?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JLS%20e%20quero%20conversar%20sobre%20uma%20opera%C3%A7%C3%A3o%20log%C3%ADstica." target="_blank" rel="noopener" aria-label="Conversar com a JLS no WhatsApp">
+    <svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+  </a>
+</div>
+
+<script>
+const phone = "5565981428733";
+
+const solutions = {
+  ecommerce: {
+    tag: "E-commerce no Mato Grosso",
+    title: "Transferência, last mile e reversa sob controle.",
+    lead: "Para marketplaces, lojas virtuais, operadores, transportadoras e distribuidores, a JLS apoia middle mile, entrada de carga no estado, distribuição regional, entregas finais e logística reversa.",
+    image: "../assets/conexao-mt.png",
+    alt: "Volumes sendo conferidos em operação logística para e-commerce",
+    proofs: [
+      "Entrada de carga em Cuiabá para redistribuição no Mato Grosso.",
+      "Apoio em middle mile, transferência, last mile e logística reversa.",
+      "Operação local para grandes fluxos e empresas regionais que precisam competir conectadas ao Brasil."
+    ],
+    flow: [
+      ["Entrada", "Recebimento ou coleta de carga para operação no MT."],
+      ["Distribuição", "Separação por destino, criticidade, cidade e janela de entrega."],
+      ["Reversa", "Tratamento de devoluções, comprovantes e retorno de informação."]
+    ],
+    route: ["Receber ou transferir volumes para a base local", "Distribuir por cidade, rota e prioridade", "Comprovar entrega e organizar reversa quando necessário"],
+    script: "Tenho uma operação de e-commerce no Mato Grosso e quero avaliar apoio para transferência, last mile ou logística reversa.",
+    message: "Olá, vim pelo site da JLS e quero falar sobre operação logística para e-commerce no Mato Grosso."
+  },
+  conexao: {
+    tag: "Parceiro logístico no MT",
+    title: "Sua base logística dentro do Mato Grosso.",
+    lead: "Para empresas de fora, entrar no estado exige presença local para receber, organizar, distribuir e responder pela entrega até o destino final.",
+    image: "../assets/conexao-mt.png",
+    alt: "Doca logística com volumes sendo conferidos para rota no Mato Grosso",
+    proofs: [
+      "Recebimento em Cuiabá de cargas vindas de CDs, indústrias e distribuidores de fora do MT.",
+      "Triagem, armazenagem operacional e roteirização para capital e interior.",
+      "Distribuição estadual com last mile, comprovante e retorno de informação."
+    ],
+    flow: [
+      ["Entrada no MT", "A carga chega em Cuiabá com conferência e identificação."],
+      ["Base local", "A JLS organiza volumes, prioridades, cidades e SLA."],
+      ["Entrega estadual", "Distribuição com comprovante e retorno para sua equipe."]
+    ],
+    route: ["Receber a carga no ponto de entrada", "Transformar volume em rota por cidade", "Entregar com comprovação e resposta operacional"],
+    script: "Tenho cargas chegando em Cuiabá e preciso entender como a JLS pode receber, distribuir e responder pela entrega no Mato Grosso.",
+    message: "Olá, vim pelo site da JLS e quero falar sobre ter um parceiro logístico no Mato Grosso."
+  },
+  agro: {
+    tag: "Urgência para peças e insumos",
+    title: "A máquina parou. A rota não pode improvisar.",
+    lead: "Quando a peça ou o insumo está fora do MT, cada hora parada vira custo operacional.",
+    image: "../assets/agro.png",
+    alt: "Máquina agrícola com peça sendo conferida em operação de campo",
+    proofs: [
+      "Coleta de peças, componentes e insumos técnicos em fornecedores e CDs fora do MT.",
+      "Consolidação em Cuiabá com integração entre Azul Logística e rodoviário.",
+      "Entrega dedicada em fazenda, oficina, revenda ou concessionária."
+    ],
+    flow: [
+      ["Urgência", "O item crítico é localizado no fornecedor, CD ou concessionária."],
+      ["Conexão", "Entrada por Cuiabá com aéreo Azul Logística e/ou rodoviário."],
+      ["Campo", "Entrega onde a operação precisa destravar."]
+    ],
+    route: ["Mapear o item crítico e a janela de parada", "Combinar aérea, rodoviária ou entrega dedicada", "Entregar na fazenda, oficina ou revenda"],
+    script: "Tenho uma demanda crítica de peça ou insumo para o agro e preciso montar uma rota mais rápida e acompanhada até o destino.",
+    message: "Olá, vim pelo site da JLS e quero falar sobre rota de urgência para peças e insumos no MT."
+  },
+  biologicos: {
+    tag: "Cadeia de custódia",
+    title: "Material biológico não viaja como carga comum.",
+    lead: "Amostras, sêmen e material genético exigem custódia, acondicionamento e rastreabilidade.",
+    image: "../assets/biologicos.png",
+    alt: "Material biológico sendo acondicionado com cuidado e documentação",
+    proofs: [
+      "Coleta dedicada em laboratório, frigorífico, central genética ou universidade de campo.",
+      "Acondicionamento e documentação conforme criticidade do material.",
+      "Rastreio e evidência por etapa para reduzir risco técnico."
+    ],
+    flow: [
+      ["Coleta técnica", "Retirada dentro do protocolo combinado."],
+      ["Custódia", "Acondicionamento, registro e evidência organizada por etapa."],
+      ["Destino", "Envio nacional ou internacional com acompanhamento."]
+    ],
+    route: ["Definir criticidade, embalagem e prazo", "Registrar custódia e documentação", "Acompanhar até o destino com evidência"],
+    script: "Tenho uma demanda com amostras ou material biológico e preciso de orientação sobre coleta, custódia, acondicionamento e rastreabilidade.",
+    message: "Olá, vim pelo site da JLS e quero falar sobre fluxo de custódia para material biológico."
+  },
+  saude: {
+    tag: "Cobertura estadual de saúde",
+    title: "Chegar a Cuiabá não é cobrir o Mato Grosso.",
+    lead: "Para saúde, cobrir o MT exige base local, SLA, rastreio e reversa no interior.",
+    image: "../assets/saude.png",
+    alt: "Caixas de produtos de saúde sendo separadas por destino",
+    proofs: [
+      "Recebimento em Cuiabá de cargas de saúde vindas de indústrias, distribuidores e parceiros.",
+      "Separação por cidade, criticidade e janela de entrega.",
+      "Distribuição de medicamentos, insumos hospitalares, OPME e logística reversa."
+    ],
+    flow: [
+      ["Entrada em Cuiabá", "Recebimento de carga com destino MT."],
+      ["Separação", "Organização por cidade, prioridade e tipo de produto."],
+      ["Cobertura estadual", "Entrega no interior, rastreio e comprovante."]
+    ],
+    route: ["Receber em Cuiabá e separar por destino", "Operar SLA, rastreio e prioridade", "Entregar e fazer reversa quando necessário"],
+    script: "Preciso cobrir entregas de saúde no Mato Grosso com SLA, rastreio, comprovante e possibilidade de reversa.",
+    message: "Olá, vim pelo site da JLS e quero falar sobre cobertura logística de saúde no MT."
+  },
+  institucional: {
+    tag: "Operação auditável",
+    title: "Entrega boa é a que também passa por auditoria.",
+    lead: "SLA, rastreabilidade, documentação e comprovantes organizados para operações de alto compliance.",
+    image: "../assets/institucional.png",
+    alt: "Documentos, comprovantes e etiquetas em conferência operacional",
+    proofs: [
+      "Operação documentada para contratos, editais, homologações e fornecedores auditáveis.",
+      "Rastreabilidade, comprovante e SLA por cidade.",
+      "Execução estadual, governança e pós-entrega institucional."
+    ],
+    flow: [
+      ["Exigência", "Edital, contrato, homologação ou política de compliance."],
+      ["Operação", "Entrega com SLA, cidade, responsável e registro por etapa."],
+      ["Comprovação", "Documento e evidência prontos para auditoria."]
+    ],
+    route: ["Entender regra de contrato e comprovação", "Executar rota com documentação por etapa", "Organizar evidências para prestação de contas"],
+    script: "Tenho uma operação que exige documentação, SLA e comprovação por etapa, e quero entender como a JLS pode apoiar.",
+    message: "Olá, vim pelo site da JLS e quero falar sobre uma operação logística auditável."
+  },
+  global: {
+    tag: "Ponta local para envio internacional",
+    title: "Enviar para fora começa antes do despacho.",
+    lead: "Coleta, embalagem, documentação e entrada correta na malha: a JLS organiza a ponta local no MT.",
+    image: "../assets/global.png",
+    alt: "Preparação de caixa e documentos para envio internacional",
+    proofs: [
+      "Coleta no interior ou na capital com conferência da carga e finalidade do envio.",
+      "Preparação em Cuiabá: embalagem, peso, medidas e documentação.",
+      "Entrada na malha internacional parceira com acompanhamento da operação."
+    ],
+    flow: [
+      ["Coleta local", "Retirada no interior ou na capital com dado de envio."],
+      ["Preparo", "Embalagem, conferência, peso, medida e documentação."],
+      ["Malha internacional", "Despacho por parceiro internacional e acompanhamento."]
+    ],
+    route: ["Coletar e conferir a carga no MT", "Preparar embalagem e documentação", "Inserir na malha parceira com acompanhamento"],
+    script: "Preciso organizar a ponta local de um envio internacional a partir do Mato Grosso: coleta, embalagem, documentação e entrada na malha.",
+    message: "Olá, vim pelo site da JLS e quero falar sobre envio internacional a partir do MT."
+  }
+};
+
+const tabs = document.querySelectorAll(".solution-tab");
+const select = document.querySelector("#scenario-select");
+const solutionTag = document.querySelector("#solution-tag");
+const solutionTitle = document.querySelector("#solution-title");
+const solutionLead = document.querySelector("#solution-lead");
+const solutionProofs = document.querySelector("#solution-proofs");
+const solutionFlow = document.querySelector("#solution-flow");
+const solutionImage = document.querySelector("#solution-image");
+const solutionCta = document.querySelector("#solution-cta");
+const routeStack = document.querySelector("#route-stack");
+const scriptText = document.querySelector("#script-text");
+const scriptLink = document.querySelector("#script-link");
+const quoteForm = document.querySelector("#quote-form");
+const quickQuoteForm = document.querySelector("#quick-quote-form");
+const quoteModeButtons = document.querySelectorAll(".quote-mode");
+const quotePanels = document.querySelectorAll("[data-quote-panel]");
+const fitTabs = document.querySelectorAll(".fit-tab");
+const fitTitle = document.querySelector("#fit-title");
+const fitCopy = document.querySelector("#fit-copy");
+const fitList = document.querySelector("#fit-list");
+
+const fitScenarios = {
+  fora: {
+    title: "Sua presença logística dentro do Mato Grosso.",
+    copy: "A JLS pode receber a carga em Cuiabá, organizar por destino, distribuir no estado e retornar informação para sua equipe.",
+    items: ["Base local para entrada e triagem.", "Distribuição na capital e interior.", "Comprovante e retorno operacional."]
+  },
+  regional: {
+    title: "Conexão para empresas do Mato Grosso competirem melhor.",
+    copy: "A JLS apoia empresas regionais que precisam sair do isolamento logístico e conectar cargas ao Mato Grosso e ao Brasil.",
+    items: ["Coletas e transferências a partir de Cuiabá.", "Apoio rodoviário e Azul Logística.", "Parceria para crescer junto com a demanda."]
+  },
+  ecommerce: {
+    title: "Middle mile, last mile e reversa com apoio local.",
+    copy: "Para e-commerce, operadores e transportadoras, a JLS ajuda a organizar entrada de carga, distribuição regional, entregas finais e devoluções.",
+    items: ["Recebimento e separação por destino.", "Last mile e reversa no Mato Grosso.", "Base a 7 minutos do aeroporto para respostas mais ágeis."]
+  },
+  critica: {
+    title: "Quando a carga tem risco, a rota precisa ter dono.",
+    copy: "Peças críticas, saúde, biológicos, contratos auditáveis e envios internacionais precisam de rastreio, documentação e decisão local.",
+    items: ["Fluxo por criticidade, prazo e evidência.", "Acompanhamento de ocorrência e retorno de informação.", "Operação próxima para alinhar ajustes rapidamente."]
+  }
+};
+
+function whatsLink(message) {
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+function normalizeFormValue(form, name) {
+  const field = form.elements[name];
+  return field ? field.value.trim() : "";
+}
+
+function setQuoteMode(mode) {
+  quoteModeButtons.forEach(button => {
+    const active = button.dataset.quoteMode === mode;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+
+  quotePanels.forEach(panel => {
+    panel.hidden = panel.dataset.quotePanel !== mode;
+  });
+}
+
+function renderSolution(key) {
+  const item = solutions[key];
+  if (!item) return;
+
+  tabs.forEach(tab => {
+    const active = tab.dataset.solution === key;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", active ? "true" : "false");
+  });
+
+  if (select.value !== key) select.value = key;
+
+  solutionTag.textContent = item.tag;
+  solutionTitle.textContent = item.title;
+  solutionLead.textContent = item.lead;
+  solutionImage.src = item.image;
+  solutionImage.alt = item.alt;
+  solutionCta.href = whatsLink(item.message);
+
+  solutionProofs.innerHTML = item.proofs.map(text => `<li>${text}</li>`).join("");
+  solutionFlow.innerHTML = item.flow.map(([title, text]) => `<div><strong>${title}</strong><span>${text}</span></div>`).join("");
+  routeStack.innerHTML = item.route.map((text, index) => `<li><b>${index + 1}</b><span>${text}</span></li>`).join("");
+  scriptText.textContent = item.script;
+  scriptLink.href = whatsLink(item.message);
+}
+
+function renderFitScenario(key) {
+  const item = fitScenarios[key];
+  if (!item) return;
+
+  fitTabs.forEach(tab => {
+    const active = tab.dataset.fit === key;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", active ? "true" : "false");
+  });
+
+  fitTitle.textContent = item.title;
+  fitCopy.textContent = item.copy;
+  fitList.innerHTML = item.items.map(text => `<li>${text}</li>`).join("");
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => renderSolution(tab.dataset.solution));
+});
+
+fitTabs.forEach(tab => {
+  tab.addEventListener("click", () => renderFitScenario(tab.dataset.fit));
+});
+
+select.addEventListener("change", event => renderSolution(event.target.value));
+
+quoteModeButtons.forEach(button => {
+  button.addEventListener("click", () => setQuoteMode(button.dataset.quoteMode));
+});
+
+quoteForm.addEventListener("submit", event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+
+  const message = [
+    "Olá, vim pelo site da JLS e quero solicitar uma análise logística.",
+    "",
+    `Nome e empresa: ${normalizeFormValue(form, "name")}`,
+    `Contato: ${normalizeFormValue(form, "contact")}`,
+    `Tipo de operação: ${normalizeFormValue(form, "operation")}`,
+    `Origem e destino: ${normalizeFormValue(form, "route")}`,
+    `Volume/frequência: ${normalizeFormValue(form, "volume")}`,
+    `O que preciso resolver: ${normalizeFormValue(form, "need")}`
+  ].join("\n");
+
+  window.open(whatsLink(message), "_blank", "noopener");
+});
+
+quickQuoteForm.addEventListener("submit", event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+
+  const message = [
+    "Olá, vim pelo site da JLS e preciso de uma cotação rápida para uma operação pontual.",
+    "",
+    `Empresa e contato: ${normalizeFormValue(form, "company")}`,
+    `Origem: ${normalizeFormValue(form, "origin")}`,
+    `Destino: ${normalizeFormValue(form, "destination")}`,
+    `Dimensões e peso por volume: ${normalizeFormValue(form, "cargo")}`,
+    `Urgência: ${normalizeFormValue(form, "urgency")}`,
+    `Informações adicionais: ${normalizeFormValue(form, "notes") || "Não informado"}`
+  ].join("\n");
+
+  window.open(whatsLink(message), "_blank", "noopener");
+});
+
+renderSolution("ecommerce");
+</script>
+</body>
+</html>

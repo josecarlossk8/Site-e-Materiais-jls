@@ -1,0 +1,12 @@
+.agents/
+.codex/
+
+# Browser profiles, caches, screenshots and temporary working files generated during local QA.
+work/*
+!work/generate_ecommerce_pdf.py
+
+# OS/editor noise.
+Thumbs.db
+.DS_Store
+*.tmp
+*.log

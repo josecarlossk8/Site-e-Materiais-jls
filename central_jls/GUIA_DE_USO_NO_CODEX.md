@@ -45,6 +45,8 @@ Use um pedido assim:
 | Prospecção | Cadencias, listas, segmentos, contas-alvo | `04_prospeccao` |
 | Operação | Servicos, SLA, cotacao, briefing de carga | `05_operacao_e_produtos` |
 | Provas e cases | Chancelas, historias, evidencias | `06_cases_e_provas` |
+| Google Perfil da Empresa | Perfil JLS, Azul Logistica, fotos, avaliacoes | `07_google_perfil_empresa` |
+| Campanhas e rotina comercial | Campanhas, funil, CRM simples, cadencias | `08_campanhas_rotina_comercial` |
 
 ## Regra de versao
 

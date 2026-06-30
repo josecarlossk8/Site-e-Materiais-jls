@@ -13,6 +13,8 @@ A regra principal: antes de criar qualquer material novo, consulte primeiro os a
 4. Para prospeccao ativa, cadencias e listas de contas, use `04_prospeccao`.
 5. Para organizar produtos logisticos, SLA, fluxos e escopo de atendimento, use `05_operacao_e_produtos`.
 6. Para provas, cases, chancelas e evidencias, use `06_cases_e_provas`.
+7. Para criar ou melhorar Google Perfil da Empresa, use `07_google_perfil_empresa`.
+8. Para campanhas, funil e rotina comercial, use `08_campanhas_rotina_comercial`.
 
 ## Fluxo recomendado no Codex
 
